@@ -5,7 +5,8 @@ describe('locations', () => {
     const text = `I am Jeremy.
     My wife is Amanda.
     My son is Sammy.
-    My daughter is Jemma.`
+    My daughter is Jemma.
+    My name is Jeremy.`
     const blacklist = [
       'Jeremy',
       'Amanda',
@@ -17,6 +18,11 @@ describe('locations', () => {
         text: 'Jeremy',
         line: 1,
         column: 6,
+      },
+      {
+        text: 'Jeremy',
+        line: 5,
+        column: 16,
       },
       {
         text: 'Amanda',

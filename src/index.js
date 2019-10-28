@@ -30,8 +30,8 @@ export const getLocations = (text = '', blacklist = []) => {
 
   blacklist.map((item) => {
     const regex = new RegExp(item, 'g')
-    const result = regex.exec(text)
-    if (result) {
+    let result = regex.exec(text)
+    while (result) {
       const [
         matchedValue,
       ] = result
@@ -40,8 +40,8 @@ export const getLocations = (text = '', blacklist = []) => {
         line: getLine(text, result.index),
         column: getColumn(text, result.index),
       })
+      result = regex.exec(text)
     }
-    return item
   })
 
   return locations
